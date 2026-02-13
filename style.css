@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.editForm {
+  opacity: 0;
+}
+
+.active {
+  opacity: 100;
+}
