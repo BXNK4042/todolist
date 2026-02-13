@@ -21,21 +21,21 @@ function displayList(){
       });
       edit_button.textContent = "Edit"
       edit_button.addEventListener('click', () => {
-        editInput.value = to_do_lists[i]
+        editInput.value = to_do_lists[i];
         editForm.classList.add('active');
         editTemp = to_do_lists.indexOf(to_do_lists[i]);
       })
       lists.appendChild(li);
       lists.appendChild(delete_button);
-      lists.appendChild(edit_button)
+      lists.appendChild(edit_button);
   }
 }
 
 function addList(){ //เพิ่ม list
   if (list_name.value){
-  to_do_lists.push(list_name.value);
-  list_name.value = "";
-  displayList();
+    to_do_lists.push(list_name.value);
+    list_name.value = "";
+    displayList();
   }
 }
 
@@ -45,14 +45,10 @@ function clearList(){
   displayList();
 }
 
-function findEditList(){
+function editList(){
   to_do_lists.splice(editTemp, 1, editInput.value);
-
-  editForm.classList.remove('active')
-
+  editForm.classList.remove('active');
   displayList();
-
-  
 }
 
 displayList();
