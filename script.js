@@ -4,6 +4,7 @@ const editForm = document.querySelector(".editForm");
 const editInput = document.getElementById("editInput");
 
 let to_do_lists = ["Exercise", "Laundry", "Workout"];
+let editTemp;
 
 function displayList(){
   lists.innerHTML = "";
@@ -20,8 +21,9 @@ function displayList(){
       });
       edit_button.textContent = "Edit"
       edit_button.addEventListener('click', () => {
+        editInput.value = to_do_lists[i]
         editForm.classList.add('active');
-        editInput.value = to_do_lists[i];
+        editTemp = to_do_lists.indexOf(to_do_lists[i]);
       })
       lists.appendChild(li);
       lists.appendChild(delete_button);
@@ -43,19 +45,14 @@ function clearList(){
   displayList();
 }
 
-function findEditList(){ //ปัญหาตอนนี้คือพอเปลี่ยน editInput.value เป็นอย่างอื่นที่ไม่มีใน to_do_list ค่า index กลายเป็น -1 ทุกครั้ง
-  const input = editInput.value;
-  const index = to_do_lists.indexOf(input);
-  localStorage.setItem('old_index', index)
-  
-  to_do_lists.splice(index, 1, input);
+function findEditList(){
+  to_do_lists.splice(editTemp, 1, editInput.value);
 
-  console.log(index)
-  console.log(input)
+  editForm.classList.remove('active')
 
   displayList();
 
-  editForm.classList.remove('active');
+  
 }
 
 displayList();
