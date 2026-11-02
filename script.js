@@ -10,24 +10,28 @@ function displayList(){
   lists.innerHTML = "";
 
   for(let i = 0; i < to_do_lists.length; i++){
-      const li = document.createElement("li");
-      const delete_button = document.createElement("button");
-      const edit_button = document.createElement("button");
-      li.textContent = to_do_lists[i];
-      delete_button.textContent = "Delete";
-      delete_button.addEventListener('click', () => {
-        to_do_lists.splice(i, 1);
-        displayList();
-      });
-      edit_button.textContent = "Edit"
-      edit_button.addEventListener('click', () => {
-        editInput.value = to_do_lists[i];
-        editForm.classList.add('active');
-        editTemp = to_do_lists.indexOf(to_do_lists[i]);
-      })
-      lists.appendChild(li);
-      lists.appendChild(delete_button);
-      lists.appendChild(edit_button);
+    const li = document.createElement("li");
+    const list_button = document.createElement("div");
+    const delete_button = document.createElement("button");
+    const edit_button = document.createElement("button");
+    li.textContent = to_do_lists[i];
+    delete_button.textContent = "Delete";
+    delete_button.addEventListener('click', () => {
+      to_do_lists.splice(i, 1);
+      displayList();
+    });
+    edit_button.textContent = "Edit"
+    edit_button.addEventListener('click', () => {
+      editInput.value = to_do_lists[i];
+      editForm.classList.add('active');
+      editTemp = to_do_lists.indexOf(to_do_lists[i]);
+    })
+    lists.appendChild(li);
+    li.appendChild(list_button);
+    list_button.appendChild(delete_button);
+    list_button.appendChild(edit_button);
+    delete_button.id = 'delete_list_button';
+    edit_button.id = 'edit_list_button';
   }
 }
 

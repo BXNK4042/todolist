@@ -10,3 +10,54 @@
 .active {
   opacity: 100;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#title {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  background-color: whitesmoke;
+}
+
+#lists {
+  width: 100%;
+  list-style: none;
+}
+
+#lists li{
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+}
+
+button {
+  transition: opacity 0.25s;
+  opacity: 100%;
+}
+
+button:hover {
+  opacity: 80%;
+}
+
+#delete_list_button {
+  background-color: #FF5B5B;
+  border-style: none;
+  border-radius: 0px;
+  width: 60px;
+  height: 60px;
+}
+
+#edit_list_button {
+  background-color: #9CCFFF;
+  border-style: none;
+  border-radius: 0px;
+  width: 60px;
+  height: 60px;  
+}
